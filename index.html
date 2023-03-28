@@ -209,7 +209,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-03-28 11:25:27 / 修改时间：11:57:33" itemprop="dateCreated datePublished" datetime="2023-03-28T11:25:27+08:00">2023-03-28</time>
+      <time title="创建时间：2023-03-28 11:25:27 / 修改时间：12:01:27" itemprop="dateCreated datePublished" datetime="2023-03-28T11:25:27+08:00">2023-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,83 +238,14 @@
 <h2 id="安装git和node-js"><a href="#安装git和node-js" class="headerlink" title="安装git和node.js"></a>安装git和node.js</h2><blockquote>
 <p>这里由于本机之前已经安装过了，所以不再演示了</p>
 </blockquote>
-<h2 id="Hexo安装及配置"><a href="#Hexo安装及配置" class="headerlink" title="Hexo安装及配置"></a>Hexo安装及配置</h2><h3 id="npm安装Hexo框架"><a href="#npm安装Hexo框架" class="headerlink" title="npm安装Hexo框架"></a>npm安装Hexo框架</h3><p>在命令行输入如下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>得到如下输出结果：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281138947.jpg" alt="img"></p>
-<p>这里我们再使用常见的命令来检查Hexo是否安装成功，在命令行中输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281138366.jpg" alt="img"></p>
-<p>得到上图结果证明安装成功，即可下一步骤。</p>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>使用<code>hexo init [file_dir name]</code>初始化项目文件夹，这里建议最好先选好命令行当前的地址，不然就有可能创建完文件才发现项目位于C盘…</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog</span><br></pre></td></tr></table></figure>
-
-<p>比如这里的命令含义是初始化一个’’myblog’’的文件夹，后续的博客文档及资源配置都会保存在这个文件夹里面。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281139239.jpg" alt="img"></p>
-<p>初始化完成后，使用<code>cd [file_dir name]</code>进入项目文件夹，并在这个文件夹安装npm，输入<code>npm install</code></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281139112.jpg" alt="img"></p>
-<h3 id="本地启动项目"><a href="#本地启动项目" class="headerlink" title="本地启动项目"></a>本地启动项目</h3><p>在命令行依次输入：<code>hexo clean</code>、<code>hexo g</code>、<code>hexo s</code>即可本地预览项目，在浏览器输入如下的地址，即可访问</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281139792.jpg" alt="img"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281141413.jpg" alt="img"></p>
-<h2 id="部署到github-pages"><a href="#部署到github-pages" class="headerlink" title="部署到github pages"></a>部署到github pages</h2><h3 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h3><p>首先，需要在github创建一个名字为username.github.io的仓库。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281142673.jpg" alt="img"></p>
-<h3 id="本地配置git"><a href="#本地配置git" class="headerlink" title="本地配置git"></a>本地配置git</h3><p>然后使用之前安装好的git，使用如下命令在本机设置github账号的用户名和注册邮箱：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name “username”</span><br><span class="line"></span><br><span class="line">git config --email user.email “email@xxx.com”</span><br></pre></td></tr></table></figure>
-
-<p>接着使用ssh生成公、私钥对，使用如下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C “email@xxx.com”		\\(邮箱同上)</span><br></pre></td></tr></table></figure>
-
-<p>第一步是让你设置私钥的存放地址，一般是在C盘用户的&#x2F;.ssh&#x2F;下面，然后后面两步注意不要设置，直接回车跳过皆可(不然后续很麻烦)。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281146122.jpeg" alt="img"></p>
-<p>进入github主页个人settings，点击new ssh key添加我们刚才生成的密钥对(只需添加公钥即可)。公钥的位置在C盘<code>/.ssh/</code>下面一个的<code>.pub</code>文件里面，直接复制添加到github上就可以了。</p>
-<p>注意：如果当前电脑生成了多个密钥对，需要在配置<strong>config</strong>文件里面修改查找路径。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281146952.jpg" alt="img"></p>
-<p>添加完成后，在本地命令行输入：<code>ssh -T git@github.com</code> 测试是否能够连通。出现如下successfully说明已经可以通过密钥来与github直接连接了，后续我们就可以直接往github部署我们的项目。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281147949.png" alt="image-20230328114738313"></p>
-<p>回到我们的项目，部署之前，我们需要在<code>_config.yaml</code>文件里面修改部署设置，修改成如下格式，其中repository部分要求与自己github用户名一致才行。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281148633.jpg" alt="img"></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>以上设置完成后，我们输入：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>即可完成部署，等待文件更新后，我们就可以在：<a target="_blank" rel="noopener" href="https://username.github.io这个网站查看我们已经部署好的个人博客,其中**username**是github的用户名./">https://username.github.io这个网站查看我们已经部署好的个人博客，其中**username**是github的用户名。</a></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281149799.jpg" alt="img"></p>
-<p>至此，我们已经完成了整个博客创建、部署的基本过程了，接下来将介绍如何发布新文章。</p>
-<h2 id="发布新文章"><a href="#发布新文章" class="headerlink" title="发布新文章"></a>发布新文章</h2><p>在本地我们使用<code>hexo new “blog name” </code>创建一个**.md**文件在<code>source</code>文件下面，这时候我们即可在里面使用markdown语法来写我们的文章。</p>
-<p>写完后回到命令行，输入：<code>hexo g</code>, <code>hexo d</code>完成文件生成，和网站的更新。当然在更新之前，我们也可以使用<code>hexo s</code>本地预览一下我们的网站，看格式是否正确。这里是发布的一篇新文章：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281152602.png" alt="image-20230328115056578"></p>
-<h2 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h2><p>Hexo官网提供了大量已经开发好的主题，我们可以到<a target="_blank" rel="noopener" href="https://hexo.io/themes/%E5%AF%BB%E6%89%BE%E6%88%91%E4%BB%AC%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%BB%E9%A2%98%EF%BC%8C%E5%B9%B6%E4%BB%8E%E4%BD%9C%E8%80%85%E6%8F%90%E4%BE%9B%E7%9A%84github%E4%BB%93%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%88%B0%E6%88%91%E4%BB%AC%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9D%A5%EF%BC%8C%E5%B0%86%E6%96%87%E4%BB%B6%E6%94%BE%E5%88%B0themes%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%BF%AE%E6%94%B9_config.yaml%E6%96%87%E4%BB%B6%E4%B8%ADtheme%E5%AD%97%E6%AE%B5%E4%B8%BA%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0">https://hexo.io/themes/寻找我们喜欢的主题，并从作者提供的github仓库下载到我们的项目中来，将文件放到themes文件夹中，并且修改_config.yaml文件中theme字段为我们刚才下载好的文件夹名称</a></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281152354.jpg" alt="img"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281152000.jpg" alt="img"></p>
-<p>然后重新部署到github即可更新我们的界面。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281152439.png" alt="image-20230328115254340"></p>
-<h2 id="结论分析与体会"><a href="#结论分析与体会" class="headerlink" title="结论分析与体会"></a>结论分析与体会</h2><p><strong>分析：</strong></p>
-<p>在实际的部署过程中，由于我的电脑之前为了和服务器连接，创建了另外的密钥对，而一般ssh在连接时是默认查找id_rsa这个文件的，因此一开始的时候我尝试使用ssh去测试github的连接情况，发现无法连通。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281153880.jpg" alt="img"></p>
-<ul>
-<li><p><strong>解决方案：</strong></p>
-<p>在<code>.ssh/</code>文件下面的<strong>config</strong>文件里面(没有则自己创建一个)，按照如图方式设置好自己定义的私钥路径即可。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281154052.jpg" alt="img"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/xvolcano02/blog_images/images/202303281154606.jpg" alt="img"></p>
-</li>
-</ul>
-<p>另外，除了 Hexo 以外，还有许多类似的博客搭建工具，这里列举几个常用的：</p>
-<ul>
-<li><p>Jekyll：Jekyll 是一个使用 Ruby 编写的静态网站生成器，与 Hexo 类似，可以使用 Markdown 编写文章，并且支持自定义主题和插件。</p>
-</li>
-<li><p>Hugo：Hugo 是一个使用 Go 编写的静态网站生成器，与 Hexo 和 Jekyll 相比，具有更快的构建速度和更好的性能，同时支持 Markdown 编写文章和自定义主题。</p>
-</li>
-<li><p>Gatsby：Gatsby 是一个使用 React 和 GraphQL 构建的静态网站生成器，支持使用 Markdown 和其他数据源（如 WordPress）编写文章，同时具有非常强大的插件系统和灵活的主题定制能力。</p>
-</li>
-<li><p>VuePress：VuePress 是一个使用 Vue.js 构建的静态网站生成器，与 Gatsby 类似，具有非常灵活的主题和插件系统，同时支持 Markdown 编写文章和自定义页面组件。这些博客搭建工具都有自己的特点和优缺点，我们可以根据自己的需求选择最适合自己的工具。</p>
-</li>
-</ul>
-<p><strong>体会：</strong></p>
-<p>这次实验使用 Hexo 和 GitHub Pages 搭建博客是一次非常有意义的学习和实践过程。通过这个过程，我学习了很多关于静态网站生成器、版本控制和Hexo博客发布的知识，同时也提高了自己的技能和实践能力。</p>
-<p>在搭建博客的过程中，我发现 Hexo 非常易于使用，它的文档非常详细，同时也有很多优秀的主题和插件可供选择。使用 Hexo，我可以非常方便地编写和发布博客文章，同时也可以自由地定制博客的外观和功能。而 GitHub Pages 则为我的博客提供了一个免费的托管平台，使得我可以将自己的博客发布到互联网上，与其他人分享我的经验和想法。</p>
-<p>在使用 Hexo 和 GitHub Pages 的过程中，我也遇到了一些配置上的问题，但是通过查阅相关文档，自己动手解决了这些问题，最终完成了博客的部署。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/28/%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%9E%E9%AA%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
